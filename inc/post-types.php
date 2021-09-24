@@ -1529,14 +1529,12 @@ function cptui_delete_post_type( $data = [] ) {
 
 	// Pass double data into last function despite matching values.
 	if ( is_string( $data ) && cptui_get_post_type_exists( $data, $data ) ) {
-		$data = [
-			'cpt_custom_post_type' => [
-				'name' => $data,
-			],
-		];
+		$slug         = $data;
+		$data         = [];
+		$data['name'] = $slug;
 	}
 
-	if ( empty( $data['cpt_custom_post_type']['name'] ) ) {
+	if ( empty( $data['name'] ) ) {
 		return cptui_admin_notices( 'error', '', false, __( 'Please provide a post type to delete', 'custom-post-type-ui' ) );
 	}
 
@@ -1551,9 +1549,9 @@ function cptui_delete_post_type( $data = [] ) {
 
 	$post_types = cptui_get_post_type_data();
 
-	if ( array_key_exists( strtolower( $data['cpt_custom_post_type']['name'] ), $post_types ) ) {
+	if ( array_key_exists( strtolower( $data['name'] ), $post_types ) ) {
 
-		unset( $post_types[ $data['cpt_custom_post_type']['name'] ] );
+		unset( $post_types[ $data['name'] ] );
 
 		/**
 		 * Filters whether or not 3rd party options were saved successfully within post type deletion.
@@ -1948,10 +1946,13 @@ function cptui_process_post_type() {
 		$result = '';
 		if ( isset( $_POST['cpt_submit'] ) ) {
 			check_admin_referer( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
-			$result = cptui_update_post_type( $_POST );
+			$data = cptui_filtered_post_type_post_global();
+			$result = cptui_update_post_type( $data );
 		} elseif ( isset( $_POST['cpt_delete'] ) ) {
 			check_admin_referer( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
-			$result = cptui_delete_post_type( $_POST );
+
+			$filtered_data = filter_input( INPUT_POST, 'cpt_custom_post_type', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
+			$result = cptui_delete_post_type( $filtered_data );
 			add_filter( 'cptui_post_type_deleted', '__return_true' );
 		}
 
@@ -1991,7 +1992,15 @@ function cptui_do_convert_post_type_posts() {
 	if ( apply_filters( 'cptui_convert_post_type_posts', false ) ) {
 		check_admin_referer( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
 
-		cptui_convert_post_type_posts( sanitize_text_field( $_POST['cpt_original'] ), sanitize_text_field( $_POST['cpt_custom_post_type']['name'] ) );
+		$original = filter_input( INPUT_POST, 'cpt_original', FILTER_SANITIZE_STRING );
+		$new      = filter_input( INPUT_POST, 'cpt_custom_post_type', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
+
+		// Return early if either fails to successfully validate.
+		if ( ! $original || ! $new ) {
+			return;
+		}
+
+		cptui_convert_post_type_posts( sanitize_text_field( $original ), sanitize_text_field( $new['name'] ) );
 	}
 }
 add_action( 'init', 'cptui_do_convert_post_type_posts' );
@@ -2018,3 +2027,45 @@ function cptui_updated_post_type_slug_exists( $slug_exists, $post_type_slug = ''
 	return $slug_exists;
 }
 add_filter( 'cptui_post_type_slug_exists', 'cptui_updated_post_type_slug_exists', 11, 3 );
+
+/**
+ * Sanitize and filter the $_POST global and return a reconstructed array of the parts we need.
+ *
+ * Used for when managing post types.
+ *
+ * @since 1.10.0
+ * @return array
+ */
+function cptui_filtered_post_type_post_global() {
+	$filtered_data = [];
+
+	foreach(
+		[
+			'cpt_custom_post_type',
+			'cpt_labels',
+			'cpt_supports',
+			'cpt_addon_taxes',
+			'update_post_types',
+		] as $item
+	) {
+		$first_result = filter_input( INPUT_POST, $item, FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
+
+		if ( $first_result ) {
+			$filtered_data[ $item ] = $first_result;
+		}
+	}
+
+	foreach (
+		[
+			'cpt_original',
+			'cpt_type_status',
+		] as $item
+	) {
+		$second_result = filter_input( INPUT_POST, $item, FILTER_SANITIZE_STRING );
+		if ( $second_result ) {
+			$filtered_data[ $item ] = $second_result;
+		}
+	}
+
+	return $filtered_data;
+}
