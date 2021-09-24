@@ -872,7 +872,7 @@ function cptui_get_cptui_post_type_object( $post_type = '' ) {
 	if ( array_key_exists( $post_type, $post_types ) ) {
 		return $post_types[ $post_type ];
 	}
-	return '';
+	return [];
 }
 
 /**
@@ -889,7 +889,7 @@ function cptui_get_cptui_taxonomy_object( $taxonomy = '' ) {
 	if ( array_key_exists( $taxonomy, $taxonomies ) ) {
 		return $taxonomies[ $taxonomy ];
 	}
-	return '';
+	return [];
 }
 
 /**
