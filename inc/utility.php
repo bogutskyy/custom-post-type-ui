@@ -108,14 +108,14 @@ function cptui_footer( $original = '' ) {
 		__( '%s version %s by %s', 'custom-post-type-ui' ),
 		__( 'Custom Post Type UI', 'custom-post-type-ui' ),
 		CPTUI_VERSION,
-		'<a href="https://webdevstudios.com" target="_blank">WebDevStudios</a>'
+		'<a href="https://webdevstudios.com" target="_blank" rel="noopener">WebDevStudios</a>'
 	) . ' - ' .
 	sprintf(
-		'<a href="http://wordpress.org/support/plugin/custom-post-type-ui" target="_blank">%s</a>',
+		'<a href="http://wordpress.org/support/plugin/custom-post-type-ui" target="_blank" rel="noopener">%s</a>',
 		__( 'Support forums', 'custom-post-type-ui' )
 	) . ' - ' .
 	sprintf(
-		'<a href="https://wordpress.org/plugins/custom-post-type-ui/reviews/" target="_blank">%s</a>',
+		'<a href="https://wordpress.org/plugins/custom-post-type-ui/reviews/" target="_blank" rel="noopener">%s</a>',
 		sprintf(
 			// translators: Placeholder will hold `<abbr>` tag for CPTUI.
 			__( 'Review %s', 'custom-post-type-ui' ),
@@ -129,7 +129,7 @@ function cptui_footer( $original = '' ) {
 	__( 'Follow on Twitter:', 'custom-post-type-ui' ) .
 	sprintf(
 		' %s',
-		'<a href="https://twitter.com/webdevstudios" target="_blank">WebDevStudios</a>'
+		'<a href="https://twitter.com/webdevstudios" target="_blank" rel="noopener">WebDevStudios</a>'
 	);
 }
 add_filter( 'admin_footer_text', 'cptui_footer' );
