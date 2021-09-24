@@ -571,11 +571,17 @@ function cptui_admin_notices_helper( $message = '', $success = true ) {
  */
 function cptui_get_object_from_post_global() {
 	if ( isset( $_POST['cpt_custom_post_type']['name'] ) ) {
-		return sanitize_text_field( $_POST['cpt_custom_post_type']['name'] );
+		$type_item = filter_input( INPUT_POST, 'cpt_custom_post_type', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
+		if ( $type_item ) {
+			return sanitize_text_field( $type_item['name'] );
+		}
 	}
 
 	if ( isset( $_POST['cpt_custom_tax']['name'] ) ) {
-		return sanitize_text_field( $_POST['cpt_custom_tax']['name'] );
+		$tax_item = filter_input( INPUT_POST, 'cpt_custom_tax', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
+		if ( $tax_item ) {
+			return sanitize_text_field( $tax_item['name'] );
+		}
 	}
 
 	return esc_html__( 'Object', 'custom-post-type-ui' );
