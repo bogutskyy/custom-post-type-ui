@@ -673,8 +673,8 @@ function cptui_register_single_taxonomy( $taxonomy = [] ) {
 	}
 
 	$rest_controller_class = null;
-	if ( ! empty( $post_type['rest_controller_class'] ) ) {
-		$rest_controller_class = $post_type['rest_controller_class'];
+	if ( ! empty( $taxonomy['rest_controller_class'] ) ) {
+		$rest_controller_class = $taxonomy['rest_controller_class'];
 	}
 
 	$meta_box_cb = null;
