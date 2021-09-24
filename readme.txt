@@ -3,8 +3,8 @@ Contributors: webdevstudios, pluginize, tw2113, vegasgeek, modemlooper, williams
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 5.5
-Tested up to: 5.7.2
-Stable tag: 1.9.2
+Tested up to: 5.8.1
+Stable tag: 1.10.0
 License: GPL-2.0+
 Requires PHP: 5.6
 
@@ -30,6 +30,10 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 6. Help/support screen.
 
 == Changelog ==
+
+= 1.10.0 - TBD =
+* Added: Dashicon picker with popup - Props arshidkv12
+* Fixed: Hardened up various parts of our code to ensure security
 
 = 1.9.2 - 2021-06-16 =
 * Added: "date" as a reserved taxonomy slug.

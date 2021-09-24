@@ -1804,7 +1804,7 @@ add_filter( 'cptui_taxonomy_slug_exists', 'cptui_updated_taxonomy_slug_exists', 
  *
  * Used for when managing taxonomies.
  *
- * @since 1.9.3
+ * @since 1.10.0
  * @return array
  */
 function cptui_filtered_taxonomy_post_global() {
