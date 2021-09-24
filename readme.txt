@@ -32,8 +32,9 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 == Changelog ==
 
 = 1.10.0 - TBD =
-* Added: Dashicon picker with popup - Props arshidkv12
-* Fixed: Hardened up various parts of our code to ensure security
+* Added: Dashicon picker with popup. - Props arshidkv12
+* Fixed: Hardened up various parts of our code to ensure security.
+* Fixed: Incorrectly referenced variable from post types instead of taxonomies, for the rest_controller_class property.
 
 = 1.9.2 - 2021-06-16 =
 * Added: "date" as a reserved taxonomy slug.
