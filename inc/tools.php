@@ -128,7 +128,7 @@ add_filter( 'cptui_get_tabs', 'cptui_tools_tabs', 10, 2 );
  */
 function cptui_tools() {
 
-	$tab = '';
+	$tab = 'post_types';
 	if ( ! empty( $_GET ) ) {
 		if ( ! empty( $_GET['action'] ) && 'taxonomies' === $_GET['action'] ) {
 			$tab = 'taxonomies';
@@ -136,8 +136,6 @@ function cptui_tools() {
 			$tab = 'get_code';
 		} elseif ( ! empty( $_GET['action'] ) && 'debuginfo' === $_GET['action'] ) {
 			$tab = 'debuginfo';
-		} else {
-			$tab = 'post_types';
 		}
 	}
 
@@ -974,18 +972,16 @@ function cptui_render_debuginfo_section() {
  * @param string $tab Current tab to display.
  */
 function cptui_render_tools( $tab ) {
-	if ( isset( $tab ) ) {
-		if ( 'post_types' === $tab || 'taxonomies' === $tab ) {
-			cptui_render_posttypes_taxonomies_section();
-		}
+	if ( 'post_types' === $tab || 'taxonomies' === $tab ) {
+		cptui_render_posttypes_taxonomies_section();
+	}
 
-		if ( 'get_code' === $tab ) {
-			cptui_render_getcode_section();
-		}
+	if ( 'get_code' === $tab ) {
+		cptui_render_getcode_section();
+	}
 
-		if ( 'debuginfo' === $tab ) {
-			cptui_render_debuginfo_section();
-		}
+	if ( 'debuginfo' === $tab ) {
+		cptui_render_debuginfo_section();
 	}
 }
 add_action( 'cptui_tools_sections', 'cptui_render_tools' );
