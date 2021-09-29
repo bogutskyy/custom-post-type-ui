@@ -255,9 +255,22 @@ add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
  */
 function cptui_create_custom_post_types() {
 	$cpts = get_option( 'cptui_post_types', [] );
+	/**
+	 * Filters an override array of post type data to be registered instead of our saved option.
+	 *
+	 * @since 1.10.0
+	 *
+	 * @param array $value Default override value.
+	 */
+	$cpts_override = apply_filters( 'cptui_post_types_override', [] );
 
-	if ( empty( $cpts ) ) {
+	if ( empty( $cpts ) && empty( $cpts_override ) ) {
 		return;
+	}
+
+	// Assume good intent, and we're also not wrecking the option so things are always reversable.
+	if ( is_array( $cpts_override ) && ! empty( $cpts_override ) ) {
+		$cpts = $cpts_override;
 	}
 
 	/**
@@ -532,9 +545,22 @@ function cptui_register_single_post_type( $post_type = [] ) {
  */
 function cptui_create_custom_taxonomies() {
 	$taxes = get_option( 'cptui_taxonomies', [] );
+	/**
+	 * Filters an override array of taxonomy data to be registered instead of our saved option.
+	 *
+	 * @since 1.10.0
+	 *
+	 * @param array $value Default override value.
+	 */
+	$taxes_override = apply_filters( 'cptui_taxonomies_override', [] );
 
-	if ( empty( $taxes ) ) {
+	if ( empty( $taxes ) && empty( $taxes_override ) ) {
 		return;
+	}
+
+	// Assume good intent, and we're also not wrecking the option so things are always reversable.
+	if ( is_array( $taxes_override ) && ! empty( $taxes_override ) ) {
+		$taxes = $taxes_override;
 	}
 
 	/**
