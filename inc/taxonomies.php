@@ -1052,6 +1052,29 @@ function cptui_manage_taxonomies() {
 									],
 								],
 							];
+							$selected           = ( isset( $current ) && ! empty( $current['show_tagcloud'] ) ) ? disp_boolean( $current['show_tagcloud'] ) : '';
+							$select['selected'] = ! empty( $selected ) ? $current['show_tagcloud'] : '';
+							echo $ui->get_select_input( [
+								'namearray'  => 'cpt_custom_tax',
+								'name'       => 'show_tagcloud',
+								'labeltext'  => esc_html__( 'Show in tag cloud.', 'custom-post-type-ui' ),
+								'aftertext'  => esc_html__( '(default: inherited from "show_ui") Whether to list the taxonomy in the Tag Cloud Widget controls.', 'custom-post-type-ui' ),
+								'selections' => $select,
+							] );
+
+							$select             = [
+								'options' => [
+									[
+										'attr'    => '0',
+										'text'    => esc_attr__( 'False', 'custom-post-type-ui' ),
+										'default' => 'false',
+									],
+									[
+										'attr' => '1',
+										'text' => esc_attr__( 'True', 'custom-post-type-ui' ),
+									],
+								],
+							];
 							$selected           = ( isset( $current ) && ! empty( $current['show_in_quick_edit'] ) ) ? disp_boolean( $current['show_in_quick_edit'] ) : '';
 							$select['selected'] = ! empty( $selected ) ? $current['show_in_quick_edit'] : '';
 							echo $ui->get_select_input( [
@@ -1449,6 +1472,7 @@ function cptui_update_taxonomy( $data = [] ) {
 		'rewrite_hierarchical'  => $data['cpt_custom_tax']['rewrite_hierarchical'],
 		'show_admin_column'     => disp_boolean( $data['cpt_custom_tax']['show_admin_column'] ),
 		'show_in_rest'          => disp_boolean( $data['cpt_custom_tax']['show_in_rest'] ),
+		'show_tagcloud'         => disp_boolean( $data['cpt_custom_tax']['show_tagcloud'] ),
 		'show_in_quick_edit'    => $show_quickpanel_bulk,
 		'rest_base'             => $rest_base,
 		'rest_controller_class' => $rest_controller_class,

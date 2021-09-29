@@ -264,6 +264,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 	$public             = isset( $taxonomy['public'] ) ? disp_boolean( $taxonomy['public'] ) : 'true';
 	$publicly_queryable = isset( $taxonomy['publicly_queryable'] ) ? disp_boolean( $taxonomy['publicly_queryable'] ) : disp_boolean( $taxonomy['public'] );
 	$show_in_quick_edit = isset( $taxonomy['show_in_quick_edit'] ) ? disp_boolean( $taxonomy['show_in_quick_edit'] ) : disp_boolean( $taxonomy['show_ui'] );
+	$show_tagcloud      = isset( $taxonomy['show_tagcloud'] ) ? disp_boolean( $taxonomy['show_tagcloud'] ) : disp_boolean( $taxonomy['show_ui'] );
 
 	$show_in_menu = ( ! empty( $taxonomy['show_in_menu'] ) && false !== get_disp_boolean( $taxonomy['show_in_menu'] ) ) ? 'true' : 'false';
 	if ( empty( $taxonomy['show_in_menu'] ) ) {
@@ -341,6 +342,7 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 		"rewrite" => <?php echo $rewrite; ?>,
 		"show_admin_column" => <?php echo $taxonomy['show_admin_column']; ?>,
 		"show_in_rest" => <?php echo $show_in_rest; ?>,
+		"show_tagcloud" => <?php echo $show_tagcloud; ?>,
 		"rest_base" => "<?php echo $rest_base; ?>",
 		"rest_controller_class" => "<?php echo $rest_controller_class; ?>",
 		"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
