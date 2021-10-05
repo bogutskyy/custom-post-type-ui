@@ -267,4 +267,14 @@ postboxes.add_postbox_toggles(pagenow);
 		} );
 	});
 
+	$('#auto-clear').on( 'click tap', function(e) {
+		e.preventDefault();
+
+		var fields = $('.cptui-labels input[type="text"]');
+
+		$(fields).each( function( i, el ) {
+			$(el).val('');
+		});
+	});
+
 })(jQuery);
