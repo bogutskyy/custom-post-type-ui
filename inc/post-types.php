@@ -291,13 +291,14 @@ function cptui_manage_post_types() {
 						] );
 
 							$link_text = ( 'new' === $tab ) ?
-								esc_html__( 'Populate additional labels based on chosen labels.', 'custom-post-type-ui' ) :
-								esc_html__( 'Populate missing labels based on chosen labels.', 'custom-post-type-ui' );
+								esc_html__( 'Populate additional labels based on chosen labels', 'custom-post-type-ui' ) :
+								esc_html__( 'Populate missing labels based on chosen labels', 'custom-post-type-ui' );
 							echo $ui->get_tr_end();
 							echo $ui->get_th_start() . esc_html__( 'Auto-populate labels', 'custom-post-type-ui' ) . $ui->get_th_end();
 							echo $ui->get_td_start();
 								?>
-									<a href="#" id="auto-populate"><?php echo esc_html( $link_text ); ?></a>
+									<a href="#" id="auto-populate"><?php echo esc_html( $link_text ); ?></a> |
+							<a href="#" id="auto-clear"><?php esc_html_e( 'Clear labels', 'custom-post-type-ui' ); ?></a>
 								<?php
 							echo $ui->get_td_end() . $ui->get_tr_end();
 
