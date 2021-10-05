@@ -35,6 +35,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Added: Dashicon picker with popup. - Props arshidkv12
 * Added: Tag Cloud widget support for custom taxonomies.
 * Added: Filters that allow developers to override the data fetched from our options, if they choose to.
+* Added: Ability to clear all filled in label values.
 * Fixed: Hardened up various parts of our code to ensure security.
 * Fixed: Incorrectly referenced variable from post types instead of taxonomies, for the rest_controller_class property.
 
@@ -75,6 +76,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Added: Dashicon picker with popup. - Props arshidkv12
 * Added: Tag Cloud widget support for custom taxonomies.
 * Added: Filters that allow developers to override the data fetched from our options, if they choose to.
+* Added: Ability to clear all filled in label values.
 * Fixed: Hardened up various parts of our code to ensure security.
 * Fixed: Incorrectly referenced variable from post types instead of taxonomies, for the rest_controller_class property.
 
