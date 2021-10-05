@@ -56,20 +56,6 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Added `types` to disallowed taxonomy slugs.
 * Updated: Amended some helper text on the listings page regarding templates. Props @tarecord
 
-= 1.8.2 - 2020-12-29 =
-* Fixed: Addressed some missing available labels for taxonomies.
-* Updated: Provide page slug and link to page if a post type slug is matching an existing page.
-* Updated: Support link was pointed to legacy WordPress Codex but had been moved to Developer Portal. Props @robwent
-
-= 1.8.1 - 2020-09-21 =
-* Fixed: Issues with WP-CLI importing.
-* Added: Menu icon preview that should have been in 1.8.0, but was missed. Props @glebkema
-
-= 1.8.0 - 2020-08-14 =
-* Added: support for default terms with a custom taxonomy.
-* Updated: Removed the forcing of underscores for post type slugs. Taxonomies are still forced.
-* Fixed: jQuery compatibility issue with WordPress 5.5.0
-
 == Upgrade Notice ==
 
 = 1.10.0 - TBD =
@@ -96,20 +82,6 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Cleaned up unused CSS.
 * Updated: Added `types` to disallowed taxonomy slugs.
 * Updated: Amended some helper text on the listings page regarding templates. Props @tarecord
-
-= 1.8.2 - 2020-12-29 =
-* Fixed: Addressed some missing available labels for taxonomies.
-* Updated: Provide page slug and link to page if a post type slug is matching an existing page.
-* Updated: Support link was pointed to legacy WordPress Codex but had been moved to Developer Portal. Props @robwent
-
-= 1.8.1 - 2020-09-21 =
-* Fixed: Issues with WP-CLI importing.
-* Added: Menu icon preview that should have been in 1.8.0, but was missed. Props @glebkema
-
-= 1.8.0 - 2020-08-14 =
-* Added: support for default terms with a custom taxonomy.
-* Updated: Removed the forcing of underscores for post type slugs. Taxonomies are still forced.
-* Fixed: jQuery compatibility issue with WordPress 5.5.0
 
 == Installation ==
 
