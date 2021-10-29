@@ -795,7 +795,7 @@ function cptui_manage_taxonomies() {
 								'namearray'  => 'cpt_custom_tax',
 								'name'       => 'hierarchical',
 								'labeltext'  => esc_html__( 'Hierarchical', 'custom-post-type-ui' ),
-								'aftertext'  => esc_html__( '(default: false) Whether the taxonomy can have parent-child relationships.', 'custom-post-type-ui' ),
+								'aftertext'  => esc_html__( '(default: false) Whether the taxonomy can have parent-child relationships. "True" gives checkboxes, "False" gives text input.', 'custom-post-type-ui' ),
 								'selections' => $select,
 							] );
 
