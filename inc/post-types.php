@@ -1820,6 +1820,9 @@ function cptui_reserved_post_types() {
 		'customize_changeset',
 		'author',
 		'post_type',
+		'oembed_cache',
+		'user_request',
+		'wp_block',
 	];
 
 	/**
