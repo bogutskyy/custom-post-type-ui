@@ -1012,6 +1012,22 @@ function cptui_manage_post_types() {
 
 							$select = [
 								'options' => [
+									[ 'attr' => '0', 'text' => esc_attr__( 'False', 'custom-post-type-ui' ), 'default' => 'false' ],
+									[ 'attr' => '1', 'text' => esc_attr__( 'True', 'custom-post-type-ui' ) ],
+								],
+							];
+							$selected           = isset( $current ) ? disp_boolean( $current['can_export'] ) : '';
+							$select['selected'] = ! empty( $selected ) ? $current['can_export'] : '';
+							echo $ui->get_select_input( [
+								'namearray'  => 'cpt_custom_post_type',
+								'name'       => 'can_export',
+								'labeltext'  => esc_html__( 'Can Export', 'custom-post-type-ui' ),
+								'aftertext'  => esc_html__( '(default: false) Can this post_type be exported.', 'custom-post-type-ui' ),
+								'selections' => $select,
+							] );
+
+							$select = [
+								'options' => [
 									[ 'attr' => '0', 'text' => esc_attr__( 'False', 'custom-post-type-ui' ) ],
 									[ 'attr' => '1', 'text' => esc_attr__( 'True', 'custom-post-type-ui' ), 'default' => 'true' ],
 								],
@@ -1755,6 +1771,7 @@ function cptui_update_post_type( $data = [] ) {
 		'exclude_from_search'   => disp_boolean( $data['cpt_custom_post_type']['exclude_from_search'] ),
 		'capability_type'       => $capability_type,
 		'hierarchical'          => disp_boolean( $data['cpt_custom_post_type']['hierarchical'] ),
+		'can_export'            => disp_boolean( $data['cpt_custom_post_type']['can_export'] ),
 		'rewrite'               => disp_boolean( $data['cpt_custom_post_type']['rewrite'] ),
 		'rewrite_slug'          => $rewrite_slug,
 		'rewrite_withfront'     => disp_boolean( $data['cpt_custom_post_type']['rewrite_withfront'] ),
