@@ -792,7 +792,7 @@ function cptui_manage_post_types() {
 
 								echo $ui->get_text_input( [
 									'labeltext' => esc_html__( 'Add Title', 'custom-post-type-ui' ),
-									'helptext'  => esc_html__( 'Placeholder text in the "title" input when creating a post.', 'custom-post-type-ui' ),
+									'helptext'  => esc_html__( 'Placeholder text in the "title" input when creating a post. Not exportable.', 'custom-post-type-ui' ),
 									'namearray' => 'cpt_custom_post_type',
 									'name'      => 'enter_title_here',
 									'textvalue' => isset( $current['enter_title_here'] ) ? esc_attr( $current['enter_title_here'] ) : '',
