@@ -790,6 +790,20 @@ function cptui_manage_post_types() {
 									],
 								] );
 
+								echo $ui->get_text_input( [
+									'labeltext' => esc_html__( 'Add Title', 'custom-post-type-ui' ),
+									'helptext'  => esc_html__( 'Placeholder text in the "title" input when creating a post.', 'custom-post-type-ui' ),
+									'namearray' => 'cpt_custom_post_type',
+									'name'      => 'enter_title_here',
+									'textvalue' => isset( $current['enter_title_here'] ) ? esc_attr( $current['enter_title_here'] ) : '',
+									'aftertext' => esc_html__( '(e.g. Add Movie)', 'custom-post-type-ui' ),
+									'data'      => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'Add %s', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
+								] );
+
 							?>
 						</table>
 					</div>
@@ -1721,6 +1735,7 @@ function cptui_update_post_type( $data = [] ) {
 	$show_in_menu_string   = trim( $data['cpt_custom_post_type']['show_in_menu_string'] );
 	$menu_icon             = trim( $data['cpt_custom_post_type']['menu_icon'] );
 	$custom_supports       = trim( $data['cpt_custom_post_type']['custom_supports'] );
+	$enter_title_here      = trim( $data['cpt_custom_post_type']['enter_title_here'] );
 
 	$post_types[ $data['cpt_custom_post_type']['name'] ] = [
 		'name'                  => $name,
@@ -1753,6 +1768,7 @@ function cptui_update_post_type( $data = [] ) {
 		'taxonomies'            => $data['cpt_addon_taxes'],
 		'labels'                => $data['cpt_labels'],
 		'custom_supports'       => $custom_supports,
+		'enter_title_here'      => $enter_title_here,
 	];
 
 	/**
@@ -2093,3 +2109,17 @@ function cptui_filtered_post_type_post_global() {
 
 	return $filtered_data;
 }
+
+function cptui_custom_enter_title_here( $text, $post ) {
+	$cptui_obj = cptui_get_cptui_post_type_object( $post->post_type );
+	if ( empty( $cptui_obj ) ) {
+		return $text;
+	}
+
+	if ( empty( $cptui_obj['enter_title_here'] ) ) {
+		return $text;
+	}
+
+	return $cptui_obj['enter_title_here'];
+}
+add_filter( 'enter_title_here', 'cptui_custom_enter_title_here', 10, 2 );
