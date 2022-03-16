@@ -492,6 +492,11 @@ function cptui_register_single_post_type( $post_type = [] ) {
 		$rest_controller_class = $post_type['rest_controller_class'];
 	}
 
+	$can_export = null;
+	if ( ! empty( $post_type['can_export'] ) ) {
+		$delete_with_user = get_disp_boolean( $post_type['can_export'] );
+	}
+
 	$args = [
 		'labels'                => $labels,
 		'description'           => $post_type['description'],
@@ -509,7 +514,7 @@ function cptui_register_single_post_type( $post_type = [] ) {
 		'capability_type'       => $capability_type,
 		'map_meta_cap'          => $post_type['map_meta_cap'],
 		'hierarchical'          => get_disp_boolean( $post_type['hierarchical'] ),
-		'can_export'            => get_disp_boolean( $post_type['can_export'] ),
+		'can_export'            => $can_export,
 		'rewrite'               => $rewrite,
 		'menu_position'         => $menu_position,
 		'menu_icon'             => $menu_icon,
