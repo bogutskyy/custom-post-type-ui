@@ -705,6 +705,8 @@ function cptui_register_single_taxonomy( $taxonomy = [] ) {
 
 	$show_in_quick_edit = ( ! empty( $taxonomy['show_in_quick_edit'] ) && false !== get_disp_boolean( $taxonomy['show_in_quick_edit'] ) ) ? true : false;
 
+	$sort = ( ! empty( $taxonomy['sort'] ) && false !== get_disp_boolean( $taxonomy['sort'] ) ) ? true : false;
+
 	$rest_base = null;
 	if ( ! empty( $taxonomy['rest_base'] ) ) {
 		$rest_base = $taxonomy['rest_base'];
@@ -751,6 +753,7 @@ function cptui_register_single_taxonomy( $taxonomy = [] ) {
 		'rest_base'             => $rest_base,
 		'rest_controller_class' => $rest_controller_class,
 		'show_in_quick_edit'    => $show_in_quick_edit,
+		'sort'                  => $sort,
 		'meta_box_cb'           => $meta_box_cb,
 		'default_term'          => $default_term,
 	];

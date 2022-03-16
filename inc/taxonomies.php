@@ -1142,6 +1142,29 @@ function cptui_manage_taxonomies() {
 								'selections' => $select,
 							] );
 
+							$select             = [
+								'options' => [
+									[
+										'attr' => '0',
+										'text' => esc_attr__( 'False', 'custom-post-type-ui' ),
+										'default' => 'false',
+									],
+									[
+										'attr'    => '1',
+										'text'    => esc_attr__( 'True', 'custom-post-type-ui' ),
+									],
+								],
+							];
+							$selected           = isset( $current ) ? disp_boolean( $current['sort'] ) : '';
+							$select['selected'] = ! empty( $selected ) ? $current['sort'] : '';
+							echo $ui->get_select_input( [
+								'namearray'  => 'cpt_custom_tax',
+								'name'       => 'sort',
+								'labeltext'  => esc_html__( 'Sort', 'custom-post-type-ui' ),
+								'aftertext'  => esc_html__( 'Whether terms in this taxonomy should be sorted in the order they are provided to wp_set_object_terms()', 'custom-post-type-ui' ),
+								'selections' => $select,
+							] );
+
 							echo $ui->get_text_input( [
 								'namearray' => 'cpt_custom_tax',
 								'name'      => 'meta_box_cb',
@@ -1530,6 +1553,7 @@ function cptui_update_taxonomy( $data = [] ) {
 		'show_admin_column'     => disp_boolean( $data['cpt_custom_tax']['show_admin_column'] ),
 		'show_in_rest'          => disp_boolean( $data['cpt_custom_tax']['show_in_rest'] ),
 		'show_tagcloud'         => disp_boolean( $data['cpt_custom_tax']['show_tagcloud'] ),
+		'sort'                  => disp_boolean( $data['cpt_custom_tax']['sort'] ),
 		'show_in_quick_edit'    => $show_quickpanel_bulk,
 		'rest_base'             => $rest_base,
 		'rest_controller_class' => $rest_controller_class,
