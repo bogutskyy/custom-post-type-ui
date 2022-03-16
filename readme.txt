@@ -2,9 +2,9 @@
 Contributors: webdevstudios, pluginize, tw2113, vegasgeek, modemlooper, williamsba1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
-Requires at least: 5.5
+Requires at least: 5.9
 Tested up to: 5.9.0
-Stable tag: 1.10.2
+Stable tag: 1.11.0
 License: GPL-2.0+
 Requires PHP: 5.6
 
