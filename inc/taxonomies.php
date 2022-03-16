@@ -708,6 +708,62 @@ function cptui_manage_taxonomies() {
 									'plurality' => 'plural',
 								],
 							] );
+
+							echo $ui->get_text_input( [
+								'namearray' => 'cpt_tax_labels',
+								'name'      => 'name_field_description',
+								'textvalue' => isset( $current['labels']['name_field_description'] ) ? esc_attr( $current['labels']['name_field_description'] ) : null,
+								'aftertext' => esc_html__( '(e.g. "The name is how it appears on your site."', 'custom-post-type-ui' ),
+								'labeltext' => esc_html__( 'Term Name Field Description', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Description for the Name field on Edit Tags screen.', 'custom-post-type-ui' ),
+								'data'      => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'The name is how it appears on your site.', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'singular',
+								],
+							] );
+
+							echo $ui->get_text_input( [
+								'namearray' => 'cpt_tax_labels',
+								'name'      => 'parent_field_description',
+								'textvalue' => isset( $current['labels']['parent_field_description'] ) ? esc_attr( $current['labels']['parent_field_description'] ) : null,
+								'aftertext' => esc_html__( '(e.g. "Assign a parent term to create a hierarchy. The term Jazz, for example, would be the parent of Bebop and Big Band."', 'custom-post-type-ui' ),
+								'labeltext' => esc_html__( 'Term Parent Field Description', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Description for the Parent field on Edit Tags screen.', 'custom-post-type-ui' ),
+								'data'      => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'Assign a parent term to create a hierarchy. The term Jazz, for example, would be the parent of Bebop and Big Band.', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'singular',
+								],
+							] );
+
+							echo $ui->get_text_input( [
+								'namearray' => 'cpt_tax_labels',
+								'name'      => 'slug_field_description',
+								'textvalue' => isset( $current['labels']['slug_field_description'] ) ? esc_attr( $current['labels']['slug_field_description'] ) : null,
+								'aftertext' => esc_html__( '(e.g. "The « slug » is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens."', 'custom-post-type-ui' ),
+								'labeltext' => esc_html__( 'Term Slug Field Description', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Description for the Slug field on Edit Tags screen. ', 'custom-post-type-ui' ),
+								'data'      => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'The "slug" is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens.', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'singular',
+								],
+							] );
+
+							echo $ui->get_text_input( [
+								'namearray' => 'cpt_tax_labels',
+								'name'      => 'desc_field_description',
+								'textvalue' => isset( $current['labels']['desc_field_description'] ) ? esc_attr( $current['labels']['desc_field_description'] ) : null,
+								'aftertext' => esc_html__( '(e.g. "The description is not prominent by default; however, some themes may show it."', 'custom-post-type-ui' ),
+								'labeltext' => esc_html__( 'Term Description Field Description', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Description for the Description field on Edit Tags screen.', 'custom-post-type-ui' ),
+								'data'      => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'The description is not prominent by default; however, some themes may show it.', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'plural',
+								],
+							] );
 							?>
 						</table>
 					</div>
