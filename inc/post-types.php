@@ -1856,6 +1856,10 @@ function cptui_reserved_post_types() {
 		'oembed_cache',
 		'user_request',
 		'wp_block',
+		'wp_template',
+		'wp_template_part',
+		'wp_global_styles',
+		'wp_navigation',
 	];
 
 	/**
