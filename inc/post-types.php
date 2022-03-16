@@ -982,7 +982,7 @@ function cptui_manage_post_types() {
 								'namearray'  => 'cpt_custom_post_type',
 								'name'       => 'exclude_from_search',
 								'labeltext'  => esc_html__( 'Exclude From Search', 'custom-post-type-ui' ),
-								'aftertext'  => esc_html__( '(default: false) Whether or not to exclude posts with this post type from front end search results.', 'custom-post-type-ui' ),
+								'aftertext'  => esc_html__( '(default: false) Whether or not to exclude posts with this post type from front end search results. This also excludes from taxonomy term archives.', 'custom-post-type-ui' ),
 								'selections' => $select,
 							] );
 
