@@ -31,6 +31,16 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Changelog ==
 
+= 1.11.0 - 2022-03-17 =
+* Added: "sort" argument for taxonomies.
+* Added: "can export" argument for post types
+* Added: New taxonomy labels from WordPress 5.9
+* Added: Custom option to set "Enter title here" value for post types.
+* Added: Notes around "exclude from search" argument for post types and taxonomy term archives.
+* Added: Notes around taxonomy "hierarchical" option regarding category vs tag behavior.
+* Updated: Reserved post type slugs from recent WordPress releases.
+* Fixed: PHP warnings around foreach loops in cptui_published_post_format_fix()
+
 = 1.10.2 - 2022-01-28 =
 * Updated: Confirmed compatibility with WordPress 5.9
 
@@ -63,6 +73,16 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Amended some helper text on the listings page regarding templates. Props @tarecord
 
 == Upgrade Notice ==
+
+= 1.11.0 - 2022-03-17 =
+* Added: "sort" argument for taxonomies.
+* Added: "can export" argument for post types
+* Added: New taxonomy labels from WordPress 5.9
+* Added: Custom option to set "Enter title here" value for post types.
+* Added: Notes around "exclude from search" argument for post types and taxonomy term archives.
+* Added: Notes around taxonomy "hierarchical" option regarding category vs tag behavior.
+* Updated: Reserved post type slugs from recent WordPress releases.
+* Fixed: PHP warnings around foreach loops in cptui_published_post_format_fix()
 
 = 1.10.2 - 2022-01-28 =
 * Updated: Confirmed compatibility with WordPress 5.9
